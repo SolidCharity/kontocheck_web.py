@@ -18,8 +18,14 @@ app = Flask(__name__)
 
 def info(testkonten, converted):
     out=""
-    out += "<html><head><title>Konto_check Testseite</title></head>"
-    out += "<body><h1>Testseite konto_check</h1>"
+    out += "<html><head><title>Konto_check Testseite</title>"
+    out += "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+    out += "<link rel='stylesheet' href='css/normalize.css'>"
+    out += "<link rel='stylesheet' href='css/skeleton.css'>"
+    out +="</head>"
+    out += "<body>"
+    out += "<div class='container'><div class='row' style='margin-top: 50px'><div class='two-third column'>"
+    out += "<h1>Testseite konto_check</h1>"
     out += "Diese Seite liefert auch XML Daten als Antwort auf Anfragen in der Form: "
     out += '<a href="/?kto=648489890&blz=50010517">/?kto=648489890&blz=50010517</a><br/>'
     out += 'und <a href="/?iban=DE12500105170648489890&bic=INGDDEFFXXX">/?iban=DE12500105170648489890&bic=INGDDEFFXXX</a><br/>'
@@ -55,7 +61,7 @@ def info(testkonten, converted):
     if converted is not None:
         out += '<h2>Testergebnisse:</h2><table>' + converted+ '</table>'
 
-    out += '</body></html>'
+    out += '</div></div></div></body></html>'
  
     return out
 
