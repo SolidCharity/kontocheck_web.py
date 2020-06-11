@@ -26,13 +26,15 @@ def info(testkonten, converted):
     out += "<body>"
     out += "<div class='container'><div class='row' style='margin-top: 50px'><div class='two-third column'>"
     out += "<h1>Testseite konto_check</h1>"
-    out += "Diese Seite liefert auch XML Daten als Antwort auf Anfragen in der Form: "
-    out += '<a href="/?kto=648489890&blz=50010517">/?kto=648489890&blz=50010517</a><br/>'
-    out += 'und <a href="/?iban=DE12500105170648489890&bic=INGDDEFFXXX">/?iban=DE12500105170648489890&bic=INGDDEFFXXX</a><br/>'
-    out += 'und <a href="/?iban=DE12500105170648489890&bic=invalid">/?iban=DE12500105170648489890&bic=invalid</a><br/>'
-    out += 'und <a href="/?iban=DE12500105170648489890">/?iban=DE12500105170648489890</a><br/>'
-    out += 'und <a href="/?bic=INGDDEFFXXX">/?bic=INGDDEFFXXX</a><br/>'
-    out += 'und <a href="/?valid_lut_file=check">/?valid_lut_file=check</a><br/>'
+    out += "Diese Seite liefert auch XML Daten als Antwort auf Anfragen in der Form: <br/><br/>"
+    out += '<ul>'
+    out += '<li>Umrechnen von Kontonummer und BLZ in IBAN und BIC: <a href="/?kto=648489890&blz=50010517">/?kto=648489890&blz=50010517</a></li>'
+    out += '<li>Überprüfung von IBAN und BIC: <a href="/?iban=DE12500105170648489890&bic=INGDDEFFXXX">/?iban=DE12500105170648489890&bic=INGDDEFFXXX</a></li>'
+    out += '<li>Korrektur von BIC: <a href="/?iban=DE12500105170648489890&bic=invalid">/?iban=DE12500105170648489890&bic=invalid</a></li>'
+    out += '<li>Liefern von BIC: <a href="/?iban=DE12500105170648489890">/?iban=DE12500105170648489890</a></li>'
+    out += '<li>Überprüfung von BIC: <a href="/?bic=INGDDEFFXXX">/?bic=INGDDEFFXXX</a></li>'
+    out += '<li>Prüfung ob die Datei mit den Bankleitzahlen noch aktuell ist: <a href="/?valid_lut_file=check">/?valid_lut_file=check</a></li>'
+    out += '</ul><br/>'
 
     out += '<br/>'
     out += 'Diese Seite arbeitet mit der unter LGPL Lizenz stehenden Bibliothek <a href="http://kontocheck.sourceforge.net/">konto_check</a> von Michael Plugge, '
