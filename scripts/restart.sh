@@ -1,2 +1,4 @@
 #!/bin/bash
-kill `ps xaf | grep pyenv | grep -v grep | awk '{print $1}'`
+export domain=`ls ~/doms`
+mkdir -p $domain/app-ssl/tmp
+touch ~/doms/$domain/app-ssl/tmp/restart.txt
