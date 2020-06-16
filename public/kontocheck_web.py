@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ##################################################################
 # Web interface for konto_check, written in Python
 # Author: Timotheus Pokorra <timotheus.pokorra@solidcharity.com>
