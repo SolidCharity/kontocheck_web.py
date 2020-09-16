@@ -12,6 +12,17 @@ Lizenz
 
 Dieses Skript steht unter der Lizenz: GNU Lesser General Public License v3 (LGPLv3) (LGPLv3)
 
+Installation
+------------
+
+```
+git clone https://github.com/SolidCharity/kontocheck_web.py.git kontocheck
+virtualenv -p /usr/bin/python3 $HOME/pyenv
+source pyenv/bin/activate
+cd ~/kontocheck
+pip3 install -r requirements.txt
+```
+
 Beispielaufrufe
 ---------------
 
