@@ -29,12 +29,12 @@ def info(testkonten, converted):
     out += "<h1>Testseite konto_check</h1>"
     out += "Diese Seite liefert auch XML Daten als Antwort auf Anfragen in der Form: <br/><br/>"
     out += '<ul>'
-    out += '<li>Umrechnen von Kontonummer und BLZ in IBAN und BIC: <a href="/?kto=648489890&blz=50010517">/?kto=648489890&blz=50010517</a></li>'
-    out += '<li>Überprüfung von IBAN und BIC: <a href="/?iban=DE12500105170648489890&bic=INGDDEFFXXX">/?iban=DE12500105170648489890&bic=INGDDEFFXXX</a></li>'
-    out += '<li>Korrektur von BIC: <a href="/?iban=DE12500105170648489890&bic=invalid">/?iban=DE12500105170648489890&bic=invalid</a></li>'
-    out += '<li>Liefern von BIC: <a href="/?iban=DE12500105170648489890">/?iban=DE12500105170648489890</a></li>'
-    out += '<li>Überprüfung von BIC: <a href="/?bic=INGDDEFFXXX">/?bic=INGDDEFFXXX</a></li>'
-    out += '<li>Prüfung ob die Datei mit den Bankleitzahlen noch aktuell ist: <a href="/?valid_lut_file=check">/?valid_lut_file=check</a></li>'
+    out += '<li>Umrechnen von Kontonummer und BLZ in IBAN und BIC: <a href="?kto=648489890&blz=50010517">?kto=648489890&blz=50010517</a></li>'
+    out += '<li>Überprüfung von IBAN und BIC: <a href="?iban=DE12500105170648489890&bic=INGDDEFFXXX">?iban=DE12500105170648489890&bic=INGDDEFFXXX</a></li>'
+    out += '<li>Korrektur von BIC: <a href="?iban=DE12500105170648489890&bic=invalid">?iban=DE12500105170648489890&bic=invalid</a></li>'
+    out += '<li>Liefern von BIC: <a href="?iban=DE12500105170648489890">?iban=DE12500105170648489890</a></li>'
+    out += '<li>Überprüfung von BIC: <a href="?bic=INGDDEFFXXX">?bic=INGDDEFFXXX</a></li>'
+    out += '<li>Prüfung ob die Datei mit den Bankleitzahlen noch aktuell ist: <a href="?valid_lut_file=check">?valid_lut_file=check</a></li>'
     out += '</ul><br/>'
 
     out += '<br/>'
