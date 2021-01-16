@@ -136,12 +136,21 @@ def validateIbanBic(iban, bic):
 def validateIban(iban):
     valid_iban = kontocheck.check_iban(iban);
     bic = ''
+    bankname = ''
+    plz = ''
+    ort = ''
     if valid_iban:
         bic = kontocheck.get_bic(iban)
+        bankname = kontocheck.get_name(iban)
+        plz = kontocheck.get_postalcode(iban)
+        ort = kontocheck.get_city(iban)
     out = '<?xml version="1.0" encoding="utf-8"?>'
     out += '<result>'
     out += '<iban>'+str(1 if valid_iban else 0)+'</iban>'
     out += '<bic>'+bic+'</bic>'
+    out += '<bankname>'+bankname+'</bankname>'
+    out += '<postcode>'+plz+'</postcode>'
+    out += '<city>'+ort+'</city>'
     out += '</result>'
     return Response(out, mimetype='text/xml')
 
