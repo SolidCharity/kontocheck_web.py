@@ -139,9 +139,9 @@ def validateIban(iban):
     bankname = ''
     plz = ''
     ort = ''
-    if valid_iban:
+    if valid_iban and iban.upper().startswith("DE"):
         bic = kontocheck.get_bic(iban)
-        bankname = kontocheck.get_name(iban)
+        bankname = kontocheck.get_bankname(iban)
         plz = kontocheck.get_postalcode(iban)
         ort = kontocheck.get_city(iban)
     out = '<?xml version="1.0" encoding="utf-8"?>'
