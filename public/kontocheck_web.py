@@ -39,7 +39,7 @@ def info(testkonten, converted):
 
     out += '<br/>'
     out += 'Diese Seite arbeitet mit der unter LGPL Lizenz stehenden Bibliothek <a href="http://kontocheck.sourceforge.net/">konto_check</a> von Michael Plugge, '
-    out += '<a href="http://sourceforge.net/projects/kontocheck/files/konto_check-de/6.11/">Version 6.11 vom 12. Dezember 2019</a>.<br/>'
+    out += '<a href="http://sourceforge.net/projects/kontocheck/files/konto_check-de/6.13/">Version 6.13 vom 22. Dezember 2020</a>.<br/>'
     f = open("version.txt", "r")
     version = f.read();
     out += 'Die blz.lut enth&auml;lt die ' + version + '<br/><br/>'
