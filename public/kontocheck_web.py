@@ -148,7 +148,7 @@ def validateIban(iban):
     out += '<result>'
     out += '<iban>'+str(1 if valid_iban else 0)+'</iban>'
     out += '<bic>'+bic+'</bic>'
-    out += '<bankname>'+bankname+'</bankname>'
+    out += '<bankname>'+bankname.replace('&', '&amp;')+'</bankname>'
     out += '<postcode>'+plz+'</postcode>'
     out += '<city>'+ort+'</city>'
     out += '</result>'
