@@ -8,6 +8,7 @@
 from flask import Flask
 from flask import request
 from flask import Response
+import os
 import traceback
 import kontocheck
 from kontocheck import KontoCheckError
@@ -40,7 +41,7 @@ def info(testkonten, converted):
     out += '<br/>'
     out += 'Diese Seite arbeitet mit der unter LGPL Lizenz stehenden Bibliothek <a href="http://kontocheck.sourceforge.net/">konto_check</a> von Michael Plugge, '
     out += '<a href="http://sourceforge.net/projects/kontocheck/files/konto_check-de/6.13/">Version 6.13 vom 22. Dezember 2020</a>.<br/>'
-    f = open("version.txt", "r")
+    f = open(os.path.dirname(os.path.realpath(__file__)) + "/version.txt", "r")
     version = f.read();
     out += 'Die blz.lut enth&auml;lt die ' + version + '<br/><br/>'
 
