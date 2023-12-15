@@ -100,7 +100,7 @@ def convertMultiple(testkonten):
                 (iban,bic,bankname,plz,ort,result) = convert(kto,blz)
                 valid_iban = True
             except:
-                iban = line
+                iban = line.replace(' ', '')
                 valid_iban = kontocheck.check_iban(iban)
                 if valid_iban:
                     bic = kontocheck.get_bic(iban)
@@ -108,7 +108,7 @@ def convertMultiple(testkonten):
                     plz = kontocheck.get_postalcode(iban)
                     ort = kontocheck.get_city(iban)
             if valid_iban:
-                converted += f'<tr><td>{iban}</td><td>{bic}</td><td>{bankname}</td><td>{plz} {ort}</td><td>{kto}</td><td>{blz}</td></tr>'
+                converted += f'<tr><td>{iban}</td><td>{bic}</td><td>{bankname}</td><td>{plz} {ort}</td><td>{blz}</td><td>{kto}</td></tr>'
             else:
                 converted += f'<tr><td colspan="6">Fehler beim Parsen der Zeile {line}</td></tr>'
     except:
