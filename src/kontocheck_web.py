@@ -56,7 +56,7 @@ def info(testkonten, converted):
     out += '<br/><br/'
 
     out += '<br/><br/>'
-    out += 'Bitte in das folgende Textfeld die zu testenden Bankverbindungen (BLZ/Kto, durch Blanks getrennt) eingeben.'
+    out += 'Bitte in das folgende Textfeld die zu testenden Bankverbindungen (BLZ/Kto, durch Blanks getrennt; oder IBAN) eingeben.'
     out += '<br/>'
     out += '<p><form method="post"><textarea cols="50" rows="15" name="testkonten">'+testkonten+'</textarea>'
     out += '<p><input type="submit" name="testen" value="Konten testen"></p>'
@@ -91,14 +91,29 @@ def convertMultiple(testkonten):
         testkonten = testkonten.replace('\t', ' ')
         converted = ''
         for line in testkonten.splitlines():
-            (blz,kto) = line.split()
-            (iban,bic,bankname,plz,ort,result) = convert(kto,blz)
-            converted += '<tr><td>'+blz+'</td><td>'+kto+'</td>'
-            converted += '<td>'+result+'</td><td>'+bankname+'</td><td>'+plz+' '+ort+'</td>'
-            converted += '<td>'+iban+'</td><td>'+bic+'</td></tr>'
+            valid_iban = False
+            blz = kto = ""
+            plz = ort = ""
+            iban = bic = ""
+            try:
+                (blz,kto) = line.split()
+                (iban,bic,bankname,plz,ort,result) = convert(kto,blz)
+                valid_iban = True
+            except:
+                iban = line
+                valid_iban = kontocheck.check_iban(iban)
+                if valid_iban:
+                    bic = kontocheck.get_bic(iban)
+                    bankname = kontocheck.get_bankname(iban)
+                    plz = kontocheck.get_postalcode(iban)
+                    ort = kontocheck.get_city(iban)
+            if valid_iban:
+                converted += f'<tr><td>{iban}</td><td>{bic}</td><td>{bankname}</td><td>{plz} {ort}</td><td>{kto}</td><td>{blz}</td></tr>'
+            else:
+                converted += f'<tr><td colspan="6">Fehler beim Parsen der Zeile {line}</td></tr>'
     except:
         converted='Fehler beim Parsen der Eingabedaten'
-        
+
     return info(testkonten, converted)
 
 def validLutFile():
@@ -190,7 +205,7 @@ def root():
     elif bic is not None:
         return validateBic(bic)
     else:
-        return info('50010517 648489890', None)
+        return info('50010517 648489890\nDE02200505501015871393', None)
   except:
     if debug:
         return("\n\n<PRE>"+traceback.format_exc())
