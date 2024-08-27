@@ -20,7 +20,7 @@ git clone https://github.com/SolidCharity/kontocheck_web.py.git kontocheck
 virtualenv -p /usr/bin/python3 $HOME/pyenv
 source pyenv/bin/activate
 cd ~/kontocheck
-pip3 install -r requirements.txt
+pipenv install
 ```
 
 Beispielaufrufe
