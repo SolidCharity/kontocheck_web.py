@@ -3,7 +3,7 @@ Kontocheck als Web Service
 
 Dieses Projekt arbeitet mit der unter LGPL Lizenz stehenden Bibliothek [konto_check](http://kontocheck.sourceforge.net/) von Michael Plugge.
 
-Es wird die kontocheck Implementierung von Thimo Kraemer eingesetzt: https://pypi.org/project/kontocheck/
+Es wird die kontocheck Implementierung von [Thimo Kraemer, joonis new media](https://www.joonis.de/de/fintech/kontocheck/) eingesetzt: https://pypi.org/project/kontocheck/
 
 Es gibt regelmäßig neue Bankdateien von der Bundesbank, die Regeln enthalten, wie die Kontonummern und Bankleitzahlen, bzw. IBAN und BIC zu berechnen sind.
 

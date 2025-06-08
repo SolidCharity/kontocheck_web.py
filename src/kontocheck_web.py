@@ -38,22 +38,23 @@ def info(testkonten, converted):
     out += '<li>Prüfung ob die Datei mit den Bankleitzahlen noch aktuell ist: <a href="?valid_lut_file=check">?valid_lut_file=check</a></li>'
     out += '</ul><br/>'
 
-    out += '<br/>'
-    out += 'Diese Seite arbeitet mit der unter LGPL Lizenz stehenden Bibliothek <a href="https://sourceforge.net/projects/kontocheck/">konto_check</a> von Michael Plugge, '
-    out += '<a href="http://sourceforge.net/projects/kontocheck/files/konto_check-de/6.14/">Version 6.14 vom 18. Februar 2023</a>.<br/>'
+    f = open(os.path.dirname(os.path.realpath(__file__)) + "/version_py.txt", "r")
+    version_py = f.read().replace('kontocheck==','').strip('\n');
     f = open(os.path.dirname(os.path.realpath(__file__)) + "/version.txt", "r")
     version = f.read();
-    out += 'Die blz.lut enth&auml;lt die ' + version + '<br/><br/>'
 
-    if not kontocheck.lut_is_valid():
-        out += '<br/><br/><strong>Die blz.lut Datei ist zu alt!</strong><br/><br/>';
-
+    out += '<br/>'
+    out += 'Diese Seite arbeitet mit der unter LGPL Lizenz stehenden Bibliothek <a href="https://sourceforge.net/projects/kontocheck/">konto_check</a> von Michael Plugge.<br/><br/>'
     out += 'Der Code dieser Seite befindet sich hier: '
     out += '<a href="https://github.com/SolidCharity/kontocheck_web.py">https://github.com/SolidCharity/kontocheck_web.py</a>.'
     out += '<br/>';
-    out += 'Es wird die kontocheck Implementierung von Thimo Kraemer eingesetzt: '
-    out += '<a href="https://pypi.org/project/kontocheck/">https://pypi.org/project/kontocheck/</a>'
+    out += 'Es wird die kontocheck Implementierung von Thimo Kraemer (<a href="https://www.joonis.de/de/fintech/kontocheck/">joonis new media</a>) eingesetzt: '
+    out += f'<a href="https://pypi.org/project/kontocheck/">https://pypi.org/project/kontocheck/</a>, in Version {version_py}.'
     out += '<br/><br/'
+
+    out += 'Die blz.lut enth&auml;lt die ' + version + '<br/><br/>'
+    if not kontocheck.lut_is_valid():
+        out += '<br/><br/><strong>Die blz.lut Datei ist ungültig!</strong><br/><br/>';
 
     out += '<br/><br/>'
     out += 'Bitte in das folgende Textfeld die zu testenden Bankverbindungen (BLZ/Kto, durch Blanks getrennt; oder IBAN) eingeben.'
