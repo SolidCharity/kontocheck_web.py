@@ -50,9 +50,9 @@ def info(testkonten, converted):
     out += '<br/>';
     out += 'Es wird die kontocheck Implementierung von Thimo Kraemer (<a href="https://www.joonis.de/de/fintech/kontocheck/">joonis new media</a>) eingesetzt: '
     out += f'<a href="https://pypi.org/project/kontocheck/">https://pypi.org/project/kontocheck/</a>, in Version {version_py}.'
-    out += '<br/><br/'
+    out += '<br/><br/>'
 
-    out += 'Die blz.lut enth&auml;lt die ' + version + '<br/><br/>'
+    out += f'Die blz.lut enth&auml;lt die {version}<br/><br/>'
     if not kontocheck.lut_is_valid():
         out += '<br/><br/><strong>Die blz.lut Datei ist ungültig!</strong><br/><br/>';
 
