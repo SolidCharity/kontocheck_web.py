@@ -1,1 +1,1 @@
-kontocheck==6.15.0
+kontocheck==6.15.4
